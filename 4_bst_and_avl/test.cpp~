@@ -1,0 +1,92 @@
+#include "bst.cpp"
+
+using namespace std;
+
+int main()
+{
+    int choice, num;
+    bst bin;
+    node* temp = NULL;
+    while (1)
+    {
+        cout<<"-----------------"<<endl;
+        cout<<"Operations on BST"<<endl;
+        cout<<"-----------------"<<endl;
+        cout<<"1.Insert Element "<<endl;
+        cout<<"2.Delete Element "<<endl;
+	cout<<"3.Search Element"<<endl;
+	cout<<"4.Find element"<<endl;
+	cout<<"5.Find maximum element"<<endl;
+	cout<<"6.Find maximum element"<<endl;
+        cout<<"7.Inorder Traversal"<<endl;
+        cout<<"8.Preorder Traversal"<<endl;
+        cout<<"9.Postorder Traversal"<<endl;
+        cout<<"10.Quit"<<endl;
+        cout<<"Enter your choice : ";
+        cin>>choice;
+	if (choice == 1){
+		temp = new node;
+                cout << "Enter the number to be inserted : \n";
+	        cin >> num;
+		temp->set_key(num);		
+                bin.insert_node(temp);
+	}
+
+	else if (choice == 2){
+                if (bin.get_root() == NULL){
+                    cout<<"Tree is empty, nothing to delete"<<endl;
+                    continue;
+                }
+                cout<<"Enter the number to be deleted : ";
+                cin>>num;
+                bin.delete_node(num , bin.get_root());
+	}
+
+	else if (choice == 3){
+                cout << "Enter the number to be searched : \n";
+	        cin >> num;
+                bin.search_node(num, bin.get_root());
+	}
+
+        else if (choice == 4){
+                cout << "Enter the number to be found : \n";
+	        cin >> num;
+                bin.find_node(num, bin.get_root());
+	}
+	
+	else if (choice == 5){
+                bin.max_of_tree(bin.get_root());
+	}
+	
+	else if (choice == 6){
+                bin.min_of_tree(bin.get_root());
+	}
+
+        else if (choice == 7){ 
+                cout<<"Inorder Traversal of BST:"<<endl;
+                bin.inorder(bin.get_root());
+                cout<<endl;
+	}
+
+        else if (choice == 8){
+                cout<<"Preorder Traversal of BST:"<<endl;
+                bin.preorder(bin.get_root());
+                cout<<endl;
+	}
+
+        else if (choice == 9){
+                cout<<"Postorder Traversal of BST:"<<endl;
+                bin.postorder(bin.get_root());
+                cout<<endl;
+	}
+	
+        else if (choice == 10){
+                exit(1);
+	}
+
+	else {           
+                cout<<"Wrong choice"<<endl;
+        }
+    }
+    return 0;
+}

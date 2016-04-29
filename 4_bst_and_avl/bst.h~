@@ -1,0 +1,50 @@
+#ifndef _BST_H
+#define _BST_H
+
+class node
+{
+private:
+	node* leftchild;
+	node* rightchild;
+	node* parent;
+	int key;
+public:
+	node();
+	~node();
+	node* get_left();
+	node* get_right();
+	node* get_parent();
+	int get_key();
+	void set_left(node*);
+	void set_right(node*);
+	void set_parent(node*);
+	void set_key(int);
+};
+
+class bst : node
+{
+private:
+	node* root;
+public:
+	node* get_root(){
+		return root;
+	}
+	void set_root(node* a){
+		root = a;
+	}
+	bst();
+	~bst();
+	void insert_node(node*);
+	void delete_node(int , node*);
+	int search_node(int , node*);
+	node* find_node(int , node*);
+	void preorder(node*);
+	void inorder(node*);
+	void postorder(node*);
+	int successor(node*);
+	int max_of_tree(node*);
+	int min_of_tree(node*);
+	void clear_tree(node*);
+};
+
+#endif
